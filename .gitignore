@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# Data Files and temporary files
+number_generator/data
+*.swp
