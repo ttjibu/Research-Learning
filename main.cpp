@@ -45,7 +45,7 @@ char operator=(char& another,Element& one){
 	return another
 }
 
-void Element::init(){
+void Element::clear(){
 	cmp_count=0;
 	set_count=0;
 	data.clear();
@@ -70,7 +70,7 @@ bool Element::is_sorted(){
 }
 
 bool Element::input(){
-	init();
+	clear();
 	++times;
 	ifs.get(data_length);
 	std::cout<<"Times="<<times<<",Data Length="<<static_cast<int>(data_length)<<",Data Size="<<(1<<static_cast<long long>(data_length))<<std::endl;
@@ -85,7 +85,7 @@ bool Element::input(){
 }
 
 void Element::output(){
-	std::ofstream ofs("../log/"+sort_name+"_"+log_file, std::ofstream::out|std::ofstream::app);
+	std::ofstream ofs(log_dir+sort_name+log_file, std::ofstream::out|std::ofstream::app);
 	ofs<<'|'<<sort_name<<'|'<<times<<'|'<<"2<sup>"<<static_cast<int>(data_length)<<"</sup>"<<'|'<<cmp_count<<'|'<<set_count<<'|'<<std::endl;
 	ofs.close();
 }

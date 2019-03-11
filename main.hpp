@@ -6,7 +6,8 @@
 #include<fstream>
 
 const std::string data_file{"../number_generator/data"};
-const std::string log_file{"log.md"};
+const std::string log_dir{"./log/"};
+const std::string log_file_suffix{"log.md"};
 
 class Element{
 	public:
@@ -17,7 +18,7 @@ class Element{
 		bool operator>(const Element& another) const;
 		char operator=(const Element& another);
 		char operator=(const char& another);
-		static void init();//To clear the data and initialize it.
+		static void clear();//To clear the data and initialize it.
 		static void swap(Element& first,Element& second);//To swap two Elements.
 		static bool is_sorted();
 		static bool input();
