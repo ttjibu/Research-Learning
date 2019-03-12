@@ -5,8 +5,8 @@
 #include<string>
 #include<fstream>
 
-const std::string data_file{"../number_generator/data"};
-const std::string log_dir{"./log/"};
+const std::string data_file{"../log/data"};//The generated data of the experiment
+const std::string log_dir{"../log/"};//Where to put the log info
 const std::string log_file_suffix{"log.md"};
 
 class Element{
@@ -34,7 +34,5 @@ class Element{
 		static std::string sort_name;
 		static std::ifstream ifs;
 };//The class of the numbers to replace typical datatype.
-
-char operator=(char& another,const Element& one);
 
 #endif

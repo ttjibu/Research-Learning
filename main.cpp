@@ -39,12 +39,6 @@ char Element::operator=(const char& another){
 	return value;
 }
 
-char operator=(char& another,Element& one){
-	++set_count;
-	another=one.value;
-	return another
-}
-
 void Element::clear(){
 	cmp_count=0;
 	set_count=0;
@@ -73,6 +67,10 @@ bool Element::input(){
 	clear();
 	++times;
 	ifs.get(data_length);
+	if(ifs.fail()){
+		std::cout<<("File "+data_file+" not found!")<<std::endl;
+		return false;
+	}
 	std::cout<<"Times="<<times<<",Data Length="<<static_cast<int>(data_length)<<",Data Size="<<(1<<static_cast<long long>(data_length))<<std::endl;
 	if(data_length==0) return false;//If data_length==0 means no data left
 	for(int i{1<<static_cast<long long>(data_length)};i>0;--i){
@@ -85,7 +83,7 @@ bool Element::input(){
 }
 
 void Element::output(){
-	std::ofstream ofs(log_dir+sort_name+log_file, std::ofstream::out|std::ofstream::app);
+	std::ofstream ofs(log_dir+sort_name+log_file_suffix, std::ofstream::out|std::ofstream::app);
 	ofs<<'|'<<sort_name<<'|'<<times<<'|'<<"2<sup>"<<static_cast<int>(data_length)<<"</sup>"<<'|'<<cmp_count<<'|'<<set_count<<'|'<<std::endl;
 	ofs.close();
 }
@@ -97,7 +95,7 @@ Element::Element(const char& another){
 int main(){
 	while(Element::input()){
 		Element::sort_method();
-		if(!(Element::is_sorted())) std::cout<<"Isn't sorted at Times "<<Element::times<<std::endl<<std::endl;
+		if(!(Element::is_sorted())) std::cout<<("The sorting method "+Element::sort_name+" isn't sorted at Times ")<<Element::times<<std::endl<<std::endl;
 		Element::output();
 	}
 	return 0;

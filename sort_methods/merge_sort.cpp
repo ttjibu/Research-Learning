@@ -1,4 +1,4 @@
-#include <main.cpp>
+#include "../main.hpp"
 using namespace std;
 string Element::sort_name{"stable_sort"};
 void Merge(vector<int> &data, int &start, int &ending, vector<int> &res){

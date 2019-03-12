@@ -6,7 +6,7 @@
 constexpr int repeat{20};
 constexpr char start_num{7};//2^7 Elements
 constexpr char end_num{20};//2^17 Elements
-const std::string file_name{"./data"};
+const std::string file_name{"../log/data"};
 
 int main(){
 	std::default_random_engine random_generator;
