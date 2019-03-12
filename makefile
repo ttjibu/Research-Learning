@@ -1,4 +1,4 @@
-source: ./log.data ./bin/bubble_sort.out ./bin/insertion_sort.out ./bin/selection_sort.out ./bin/heap_sort.out ./bin/merge_sort.out ./bin/quick_sort.out
+source: ./log/data ./bin/bubble_sort.out ./bin/insertion_sort.out ./bin/selection_sort.out ./bin/heap_sort.out ./bin/merge_sort.out ./bin/quick_sort.out
 
 ./bin/bubble_sort.out:
 	g++ main.cpp ./sort_methods/bubble_sort.cpp -o ./bin/bubble_sort.out
