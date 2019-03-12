@@ -7,11 +7,11 @@ void Element::sort_method() {
 	Element min(0);
 	int minIndex;
 	for(int i = 0;i < data.size() -1;++i) {
-		min = data[i];
+		min = data[i].value;
 		minIndex = i;
 		for(int j = i;j < data.size();++j) {
 			if(data[j] < min) {
-				min = data[j];
+				min = data[j].value;
 				minIndex = j;
 			}
 		}
