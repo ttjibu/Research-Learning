@@ -10,7 +10,7 @@ void Element::sort_method() {
 			if(data[j]>data[k])break; 
 		i=data[j];
 		for(l=j; l>=k; l--)
-			data[l].value=data[l-1].value;
+			data[l]=data[l-1];
 		data[k].value=i;       
 	}
 	return 0;
