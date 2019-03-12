@@ -12,10 +12,10 @@ void Merge(vector<int> &data, int &start, int &ending, vector<int> &res){
     res[res_index++] = (data[left_index] < data[right_index]) ? data[left_index++] : data[right_index++];
   }
   while(left_index < (is2+ left_len)){
-    res[res_index++] = data[left_index++];
+    res[res_index++] = data[left_index++].value;
   }
   while(right_index <= ie2){
-    res[res_index++] = data[right_index++];
+    res[res_index++] = data[right_index++].value;
   }
 //   for(int i =is2; i<ie2;++i){
 //     data[i] = res[i];
