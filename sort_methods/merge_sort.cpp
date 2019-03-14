@@ -1,7 +1,7 @@
 #include "../main.hpp"
 using namespace std;
 string Element::sort_name{"stable_sort"};
-void Merge(vector<int> &data, int &start, int &ending, vector<int> &res){
+void Merge(vector<Element> &data, int &start, int &ending, vector<Element> &res){
   int is2 = start;
   int ie2 = ending;
   int left_index = is2;
@@ -12,17 +12,17 @@ void Merge(vector<int> &data, int &start, int &ending, vector<int> &res){
     res[res_index++] = (data[left_index] < data[right_index]) ? data[left_index++] : data[right_index++];
   }
   while(left_index < (is2+ left_len)){
-    res[res_index++] = data[left_index++].value;
+    res[res_index++] = data[left_index++];
   }
   while(right_index <= ie2){
-    res[res_index++] = data[right_index++].value;
+    res[res_index++] = data[right_index++];
   }
 //   for(int i =is2; i<ie2;++i){
 //     data[i] = res[i];
 //   }
 }
  
-void mergeSort(vector<int> &data, int &start, int &ending, vector<int> &res){
+void mergeSort(vector<Element> &data, int &start, int &ending, vector<Element> &res){
   int is = start;
   int ie = ending;
   int mid = (is+ie+1)*0.5;
@@ -52,8 +52,7 @@ void mergeSort(vector<int> &data, int &start, int &ending, vector<int> &res){
 int Element::sort_method(){
   int length = data.size();
   int len = data.size()-1;
-  vector<int> res;
-  res.resize(length);
+  vector<Element> res(length);
   mergeSort(data, start, len, res);
 }
  
