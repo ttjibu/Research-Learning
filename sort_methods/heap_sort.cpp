@@ -1,8 +1,8 @@
 #include "../main.hpp"
 using namespace std;
 string Element::sort_name{"heap_sort"};
- 
-void Heapify(vector<int> &data, int &s, int &len){
+
+void Heapify(vector<Element>& data, int &s, int &len){
 	int fa = s;
 	int child = 2*fa+1;
 	while(child < len){
@@ -35,9 +35,10 @@ void HeapSort(vector<int> &data, int &len){
 		Heapify(data, start, i);
 	}
 }
- 
-int Element::sort_method(){
+
+void Element::sort_method()
 {	
-	int len = date.size();
-	HeapSort(data, len);
+	//int len = date.size();
+	//HeapSort(data, len);
+	swap(data[0],data[1]);
 }

@@ -12,6 +12,7 @@ const std::string log_file_suffix{"log.md"};
 class Element{
 	public:
 		Element(const char& another);
+		Element(const Element& another);
 		bool operator<=(const Element& another) const;
 		bool operator<(const Element& another) const;
 		bool operator>=(const Element& another) const;
@@ -26,6 +27,7 @@ class Element{
 		static void sort_method();
 		
 		char value;
+
 		static int times;
 		static long long cmp_count;
 		static long long set_count;
