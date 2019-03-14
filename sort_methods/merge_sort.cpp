@@ -50,9 +50,10 @@ void mergeSort(vector<Element> &data, int &start, int &ending, vector<Element> &
 }
  
 void Element::sort_method(){
+  int start = 0;
   int length = data.size();
   int len = data.size()-1;
   vector<Element> res(length);
-  mergeSort(data, 0, len, res);
+  mergeSort(data, start, len, res);
 }
  
