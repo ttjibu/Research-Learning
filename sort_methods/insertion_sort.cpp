@@ -8,10 +8,9 @@ void Element::sort_method() {
 	for(j=2; j<=data.size(); j++) {
 		for(k=1; k<j; k++)
 			if(data[j]>data[k])break; 
-		i=data[j];
+		i=data[j].value;
 		for(l=j; l>=k; l--)
 			data[l]=data[l-1];
 		data[k].value=i;       
 	}
-	return 0;
 }
