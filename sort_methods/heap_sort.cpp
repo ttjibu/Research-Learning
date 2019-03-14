@@ -13,19 +13,16 @@ void Heapify(vector<Element>& data, int &s, int &len){
 			Element::swap(data[fa], data[child]);
 			fa = child;
 			child = 2*fa+1;
-			cout << "fa2 = " << fa <<" " << "child2 = " << child << endl;
 		}
 		else{
 			break;
 		}
 	}
-	printkk(data,len);
-	cout << endl;
 }
  
 int start = 0;
  
-void HeapSort(vector<int> &data, int &len){
+void HeapSort(vector<Element> &data, int &len){
   // initial building heap
 	for(int i = (len-1)/2; i>=0;--i){
 		Heapify(data, i, len);
@@ -38,7 +35,7 @@ void HeapSort(vector<int> &data, int &len){
 
 void Element::sort_method()
 {	
-	//int len = date.size();
-	//HeapSort(data, len);
+	int len = date.size();
+	HeapSort(data, len);
 	swap(data[0],data[1]);
 }
