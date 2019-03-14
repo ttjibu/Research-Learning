@@ -96,6 +96,10 @@ Element::Element(const Element& another){
 	value=another.value;
 }
 
+Element::Element(){
+	value=0;
+}
+
 int main(){
 	while(Element::input()){
 		Element::sort_method();
