@@ -35,7 +35,7 @@ void HeapSort(vector<Element> &data, int &len){
 
 void Element::sort_method()
 {	
-	int len = date.size();
+	int len = data.size();
 	HeapSort(data, len);
 	swap(data[0],data[1]);
 }
