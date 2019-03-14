@@ -1,7 +1,7 @@
 source: ./bin ./log/data ./bin/bubble_sort.out ./bin/insertion_sort.out ./bin/selection_sort.out ./bin/heap_sort.out ./bin/merge_sort.out ./bin/quick_sort.out
 
 ./bin:
-	mkdir ./bin
+	mkdir -p ./bin
 
 ./bin/bubble_sort.out:
 	g++ main.cpp ./sort_methods/bubble_sort.cpp -o ./bin/bubble_sort.out
@@ -22,12 +22,10 @@ source: ./bin ./log/data ./bin/bubble_sort.out ./bin/insertion_sort.out ./bin/se
 	g++ main.cpp ./sort_methods/quick_sort.cpp -o ./bin/quick_sort.out
 
 ./log/data:
-	mkdir ./log
+	mkdir -p ./log
 	g++ ./number_generator/main.cpp -o ./bin/number_generator.out
 	./bin/number_generator.out
 
 clean:
-	rm ./bin/*
-
-reset:
-	rm ./log/*
+	find ./ -name bin -type d && rm -rf ./bin
+	find ./ -name log -type d && rm -rf ./log
