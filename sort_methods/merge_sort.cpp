@@ -49,7 +49,7 @@ void mergeSort(vector<Element> &data, int &start, int &ending, vector<Element> &
   }
 }
  
-int Element::sort_method(){
+void Element::sort_method(){
   int length = data.size();
   int len = data.size()-1;
   vector<Element> res(length);
