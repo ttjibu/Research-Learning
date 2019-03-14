@@ -13,5 +13,4 @@ void Element::sort_method() {
 			data[l]=data[l-1];
 		data[k].value=i;       
 	}
-	return 0;
 }
