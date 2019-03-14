@@ -53,6 +53,6 @@ void Element::sort_method(){
   int length = data.size();
   int len = data.size()-1;
   vector<Element> res(length);
-  mergeSort(data, start, len, res);
+  mergeSort(data, 0, len, res);
 }
  
