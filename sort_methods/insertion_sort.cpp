@@ -4,13 +4,12 @@ using namespace std;
 string Element::sort_name{"insertion_sorting "};
 
 void Element::sort_method() {
-	int j,k,i,l;
-	for(j=2; j<=data.size(); j++) {
-		for(k=1; k<j; k++)
-			if(data[j]>data[k])break; 
-		i=data[j].value;
-		for(l=j; l>=k; l--)
-			data[l]=data[l-1];
-		data[k].value=i;       
-	}
+        for(int i = 1;i < data.size();++i) {
+                for(int j = i;j > 0;--j) {
+                        if(data[j] < data[j-1])
+                                Element::swap(data[j], data[j-1]);
+                        else
+                                break;
+                }
+        }
 }
