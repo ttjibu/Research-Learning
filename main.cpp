@@ -7,6 +7,10 @@ std::vector<Element> Element::data;
 char Element::data_length{0};
 int Element::times{0};
 
+char Element::get_value() const{
+	return value;
+}
+
 bool Element::operator<=(const Element& another) const{
 	++cmp_count;
 	return value<=another.get_value();

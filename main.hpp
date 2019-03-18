@@ -14,6 +14,7 @@ class Element{
 		Element(const char& another);
 		Element(const Element& another);
 		Element();
+		char get_value() const;
 		bool operator<=(const Element& another) const;
 		bool operator<(const Element& another) const;
 		bool operator>=(const Element& another) const;
