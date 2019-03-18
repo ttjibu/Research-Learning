@@ -18,7 +18,7 @@ class Element{
 		bool operator<(const Element& another) const;
 		bool operator>=(const Element& another) const;
 		bool operator>(const Element& another) const;
-		char operator=(const Element& another);
+		char operator=(Element& another);
 		char operator=(const char& another);
 		static void clear();//To clear the data and initialize it.
 		static void swap(Element& first,Element& second);//To swap two Elements.
@@ -26,8 +26,6 @@ class Element{
 		static bool input();
 		static void output();
 		static void sort_method();
-		
-		char value;
 
 		static int times;
 		static long long cmp_count;
@@ -36,6 +34,9 @@ class Element{
 		static char data_length;
 		static std::string sort_name;
 		static std::ifstream ifs;
+		
+	private:
+		char value;
 };//The class of the numbers to replace typical datatype.
 
 #endif
