@@ -9,27 +9,27 @@ int Element::times{0};
 
 bool Element::operator<=(const Element& another) const{
 	++cmp_count;
-	return value<=another.value;
+	return value<=another.get_value();
 }
 
 bool Element::operator>=(const Element& another) const{
 	++cmp_count;
-	return value>=another.value;
+	return value>=another.get_value();
 }
 
 bool Element::operator<(const Element& another) const{
 	++cmp_count;
-	return value<another.value;
+	return value<another.get_value();
 }
 
 bool Element::operator>(const Element& another) const{
 	++cmp_count;
-	return value>another.value;
+	return value>another.get_value();
 }
 
-char Element::operator=(const Element& another){
+char Element::operator=(Element& another){
 	++set_count;
-	value=another.value;
+	value=another.get_value();
 	return value;
 }
 
@@ -93,7 +93,7 @@ Element::Element(const char& another){
 }
 
 Element::Element(const Element& another){
-	value=another.value;
+	value=another.get_value();
 }
 
 Element::Element(){
