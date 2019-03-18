@@ -28,7 +28,7 @@ void HeapSort(vector<Element> &data, int &len){
 		Heapify(data, i, len);
 	}
 	for(int i = len-1; i>0;--i){
-		swap(data[i],data[start]);
+		Element::swap(data[i],data[start]);
 		Heapify(data, start, i);
 	}
 }

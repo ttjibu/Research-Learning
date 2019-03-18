@@ -6,14 +6,15 @@
 constexpr int repeat{20};
 constexpr char start_num{7};//2^7 Elements
 constexpr char end_num{20};//2^17 Elements
-const std::string file_name{"../log/data"};
+const std::string file_name{"./log/data"};
 
 int main(){
 	std::default_random_engine random_generator;
 	std::uniform_int_distribution<char> random_distribution(-127,127);
 	std::ofstream ofs(file_name,std::ofstream::out|std::ofstream::binary|std::ofstream::trunc);
+	if(ofs.fail()) std::cout<<"ofstream failed!";
 	for(char current_num{start_num};current_num<=end_num;++current_num){
-		std::cout<<"Current Num:"<<current_num<<std::endl;
+		std::cout<<"Current Num:"<<static_cast<int>(current_num)<<std::endl;
 		for(int repeat_times{repeat};repeat_times>0;--repeat_times){
 			ofs<<current_num;
 			std::cout<<"Repeat:"<<(repeat-repeat_times)<<std::endl;
