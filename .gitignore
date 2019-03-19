@@ -34,3 +34,5 @@
 # Data Files and temporary files
 log/data
 *.swp
+core
+
