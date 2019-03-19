@@ -9,7 +9,7 @@ void quicksort(vector<Element>& vec,int s,int t)
 	int i=s,j=t;
 	if(s<t)
 	{
-		tem=vec[s];
+		Element tem=vec[s];
 		while(i!=j)
 		{
 			while(j>i&&vec[j]>tem)
