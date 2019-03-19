@@ -10,11 +10,11 @@ void merge(vector<Element> &arr, int left_start, int right_start, int end) {
 	int tarr_index = 0;
 	vector<Element> tarr(end - left_start + 1);
 	//merge
-	while(left_index < right_start && right_index < end)
+	while(left_index < right_start && right_index <= end)
 		tarr[tarr_index++] = arr[left_index] < arr[right_index] ? arr[left_index++] : arr[right_index++];
 	while(left_index < right_start)
 		tarr[tarr_index++] = arr[left_index++];
-	while(right_index < right_start)
+	while(right_index <= end)
 		tarr[tarr_index++] = arr[right_index++];
 	//copy from tarr
 	tarr_index = 0;
@@ -24,7 +24,7 @@ void merge(vector<Element> &arr, int left_start, int right_start, int end) {
 
 void sort(vector<Element> &arr, int start, int end) {
 	if(end - start < 2) {
-		if(end - start == 1)
+		if(end - start == 1 && arr[start] > arr[end])
 			Element::swap(arr[start], arr[end]);
 		else
 			return;
