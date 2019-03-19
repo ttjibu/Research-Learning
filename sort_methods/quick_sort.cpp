@@ -19,7 +19,7 @@ void quicksort(vector<Element>& vec,int s,int t)
 			while(i<j&&vec[i]<tem)
 				i++;
 			if(i<j)
-				a[j]=a[i];
+				vec[j]=vec[i];
 		}
 		vec[i]=tem;
 			quicksort(vec,s,i-1);
