@@ -15,10 +15,10 @@ void quicksort(vector<Element>& vec,int s,int t)
 		{
 			while(j>i&&vec[j]>tem)
 				j--;
-			vec[i]=vec[j];
 			while(i<j&&vec[i]<tem)
 				i++;
-			vec[j]=vec[i];
+			Element::swap(vec[i],vec[j]);
+			j--;i++;
 		}
 		vec[i]=tem;
 		quicksort(vec,s,i-1);
