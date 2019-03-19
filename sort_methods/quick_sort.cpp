@@ -7,7 +7,6 @@ string Element::sort_name{"Quick Sort"};
 void quicksort(vector<Element>& vec,int s,int t)
 {
 	int i=s,j=t;
-	Element tem;
 	if(s<t)
 	{
 		tem=vec[s];
@@ -15,14 +14,16 @@ void quicksort(vector<Element>& vec,int s,int t)
 		{
 			while(j>i&&vec[j]>tem)
 				j--;
+			if(j>i)
+				vec[i]=vec[j];
 			while(i<j&&vec[i]<tem)
 				i++;
-			Element::swap(vec[i],vec[j]);
-			j--;i++;
+			if(i<j)
+				a[j]=a[i];
 		}
 		vec[i]=tem;
-		quicksort(vec,s,i-1);
-		quicksort(vec,i+1,t);
+			quicksort(vec,s,i-1);
+			quicksort(vec,i+1,t);
 	}
 }
 void Element::sort_method()
