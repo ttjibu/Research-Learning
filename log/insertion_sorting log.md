@@ -254,3 +254,6 @@
 |insertion_sorting |254|2<sup>19</sup>|68327324962|136652552788|
 |insertion_sorting |255|2<sup>19</sup>|68379279506|136756461874|
 |insertion_sorting |256|2<sup>19</sup>|68358004769|136713912398|
+|insertion_sorting |257|2<sup>19</sup>|68358786854|136715476570|
+|insertion_sorting |258|2<sup>19</sup>|68424471278|136846845416|
+|insertion_sorting |259|2<sup>19</sup>|68551613564|137101129990|

@@ -253,3 +253,7 @@
 |Selection Sort|253|2<sup>19</sup>|137439739902|4783831|
 |Selection Sort|254|2<sup>19</sup>|137439739902|4779270|
 |Selection Sort|255|2<sup>19</sup>|137439739902|4765840|
+|Selection Sort|256|2<sup>19</sup>|137439739902|4774934|
+|Selection Sort|257|2<sup>19</sup>|137439739902|4783429|
+|Selection Sort|258|2<sup>19</sup>|137439739902|4783117|
+|Selection Sort|259|2<sup>19</sup>|137439739902|4783109|
