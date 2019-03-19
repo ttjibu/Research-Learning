@@ -1,59 +1,41 @@
 #include "../main.hpp"
 using namespace std;
-string Element::sort_name{"stable_sort"};
-void Merge(vector<Element> &data, int &start, int &ending, vector<Element> &res){
-  int is2 = start;
-  int ie2 = ending;
-  int left_index = is2;
-  int left_len = (ie2+is2+1)/2;
-  int right_index = is2+left_len;
-  int res_index = is2;
-  while((left_index < (is2+ left_len)) && (right_index < ie2+1)){
-    res[res_index++] = (data[left_index] < data[right_index]) ? data[left_index++] : data[right_index++];
-  }
-  while(left_index < (is2+ left_len)){
-    res[res_index++] = data[left_index++];
-  }
-  while(right_index <= ie2){
-    res[res_index++] = data[right_index++];
-  }
-//   for(int i =is2; i<ie2;++i){
-//     data[i] = res[i];
-//   }
+
+string Element::sort_name{"merge_sort"};
+
+void merge(vector<Element> &arr, int left_start, int right_start, int end) {
+	int left_index = left_start;
+	int right_index = right_start;
+	//temp_array
+	int tarr_index = 0;
+	vector<Element> tarr(end - left_start + 1);
+	//merge
+	while(left_index < right_start && right_index < end)
+		tarr[tarr_index++] = arr[left_index] < arr[right_index] ? arr[left_index++] : arr[right_index++];
+	while(left_index < right_start)
+		tarr[tarr_index++] = arr[left_index++];
+	while(right_index < right_start)
+		tarr[tarr_index++] = arr[right_index++];
+	//copy from tarr
+	tarr_index = 0;
+	for(int i = left_start;i <= end;++i)
+		arr[i] = tarr[tarr_index++];
 }
- 
-void mergeSort(vector<Element> &data, int &start, int &ending, vector<Element> &res){
-  int is = start;
-  int ie = ending;
-  int mid = (is+ie+1)*0.5;
-  int midr = mid+1;
-  if(1 == ie-is){
-    if(data[is] > data[ie]){
-      Element::swap(data[is], data[ie]);
-      res[is] = data[is];
-      res[ie] = data[ie];
-    }
-    return;
-  }
-  else if(0 == ie-is){
-    return;
-  }
-  else{
-    mergeSort(data, is, mid, res); // the left region
-    mergeSort(data, midr, ie, res); // the right region
-    
-    Merge(data, is, ie, res);
-//     for(int i = is;i<ie;++i){
-//       data[i] = res[i];
-//     } 
-  }
+
+void sort(vector<Element> &arr, int start, int end) {
+	if(end - start < 2) {
+		if(end - start == 1)
+			Element::swap(arr[start], arr[end]);
+		else
+			return;
+	}else{
+		int mid = (start + end) / 2;
+		sort(arr, start, mid);
+		sort(arr, mid + 1, end);
+		merge(arr, start, mid + 1, end);
+	}
 }
- 
-void Element::sort_method(){
-  int start = 0;
-  int length = data.size();
-  int len = data.size()-1;
-  vector<Element> res(length);
-  mergeSort(data, start, len, res);
+
+void Element::sort_method() {
+	sort(data, 0, data.size()-1);
 }
- 
