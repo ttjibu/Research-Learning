@@ -1,41 +1,38 @@
 #include "../main.hpp"
 using namespace std;
+
 string Element::sort_name{"heap_sort"};
 
-void Heapify(vector<Element>& data, int &s, int &len){
-	int fa = s;
-	int child = 2*fa+1;
-	while(child < len){
-		if(child+1 < len && data[child] < data[child+1]){
-			++child;
-		}
-		if(data[fa]<data[child]){
-			Element::swap(data[fa], data[child]);
-			fa = child;
-			child = 2*fa+1;
-		}
-		else{
-			break;
-		}
-	}
-}
- 
-int start = 0;
- 
-void HeapSort(vector<Element> &data, int &len){
-  // initial building heap
-	for(int i = (len-1)/2; i>=0;--i){
-		Heapify(data, i, len);
-	}
-	for(int i = len-1; i>0;--i){
-		Element::swap(data[i],data[start]);
-		Heapify(data, start, i);
+void heapify(vector<Element> &arr, int fa, int &heap_len) {
+	int left = 2 * fa + 1;
+	int right = 2 * fa + 2;
+	int max = fa;
+	if(left < heap_len - 1 && arr[left] > arr[max])
+		max = left;
+	if(right < heap_len - 1 && arr[right] > arr[max])
+		max = right;
+	if(max != fa) {
+		Element::swap(arr[max], arr[fa]);
+		heapify(arr, max, heap_len);
 	}
 }
 
-void Element::sort_method()
-{	
-	int len = data.size();
-	HeapSort(data, len);
-	swap(data[0],data[1]);
+void build_max_heap(vector<Element> &arr) {
+	int len = arr.size();
+	for(int i = arr.size() / 2 - 1; i >= 0; --i)
+		heapify(arr, i, len);
+}
+
+void heap_sort(vector<Element> &arr) {
+	build_max_heap(arr);
+	int heap_len = arr.size();
+	while(heap_len > 1) {
+		Element::swap(arr[0], arr[heap_len - 1]);
+		--heap_len;
+		heapify(arr, 0, heap_len);
+	}
+}
+
+void Element::sort_method() {
+	heap_sort(data);
 }
