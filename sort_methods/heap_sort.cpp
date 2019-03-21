@@ -7,9 +7,9 @@ void heapify(vector<Element> &arr, int fa, int &heap_len) {
 	int left = 2 * fa + 1;
 	int right = 2 * fa + 2;
 	int max = fa;
-	if(left < heap_len - 1 && arr[left] > arr[max])
+	if(left < heap_len && arr[left] > arr[max])
 		max = left;
-	if(right < heap_len - 1 && arr[right] > arr[max])
+	if(right < heap_len && arr[right] > arr[max])
 		max = right;
 	if(max != fa) {
 		Element::swap(arr[max], arr[fa]);
