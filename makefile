@@ -29,4 +29,3 @@ source: ./bin ./log/data ./bin/bubble_sort.out ./bin/insertion_sort.out ./bin/se
 
 clean:
 	find ./ -name bin -type d && rm -rf ./bin
-	find ./ -name log -type d && rm -rf ./log
