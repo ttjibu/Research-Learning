@@ -32,7 +32,11 @@
 *.app
 
 # Data Files and temporary files
-log/data
+experiment/log/data
 *.swp
-core
+experiment/core
+
+# LaTeX Aux files
+*.log
+*.aux
 
